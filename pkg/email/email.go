@@ -1,15 +1,14 @@
-package mail
+package email
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/404th/portillo/config/data"
 	"github.com/mailjet/mailjet-apiv3-go/v4"
+	"github.com/sirupsen/logrus"
 )
 
 func NewMailGen(pub, pri, toEmail, toName, fromEmail, fromName string) {
-	// defer func() { wg.Done() }()
 	mailjetClient := mailjet.NewMailjetClient(pub, pri)
 	messagesInfo := []mailjet.InfoMessagesV31{
 		{
@@ -33,5 +32,5 @@ func NewMailGen(pub, pri, toEmail, toName, fromEmail, fromName string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("Data: %+v\n", res.ResultsV31)
+	logrus.Printf("Data: %+v\n", res.ResultsV31)
 }
