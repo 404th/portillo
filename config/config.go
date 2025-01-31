@@ -19,6 +19,7 @@ type Config struct {
 
 	EmailPrivateKey string
 	EmailPublicKey  string
+	EmailBaseUrl    string
 }
 
 func NewConfig() (cfg *Config, err error) {
@@ -37,8 +38,9 @@ func NewConfig() (cfg *Config, err error) {
 	cfg.PostgresHost = cast.ToString(getDefaultOrValue(os.Getenv("PostgresHost"), "0.0.0.0"))
 	cfg.PostgresPort = cast.ToInt32(getDefaultOrValue(os.Getenv("PostgresPort"), 5432))
 
-	cfg.EmailPrivateKey = cast.ToString(getDefaultOrValue(os.Getenv("EmailPrivateKey"), "super_secret_key"))
-	cfg.EmailPublicKey = cast.ToString(getDefaultOrValue(os.Getenv("EmailPublicKey"), "super_public_key"))
+	cfg.EmailPrivateKey = cast.ToString(getDefaultOrValue(os.Getenv("MJ_APIKEY_PRIVATE"), "super_secret_key"))
+	cfg.EmailPublicKey = cast.ToString(getDefaultOrValue(os.Getenv("MJ_APIKEY_PUBLIC"), "super_public_key"))
+	cfg.EmailBaseUrl = cast.ToString(getDefaultOrValue(os.Getenv("MJ_BASE_URL"), "0.0.0.0"))
 
 	return cfg, err
 }

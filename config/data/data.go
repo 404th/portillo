@@ -16,10 +16,9 @@ var Admin Sender = Sender{
 }
 
 var Owners []Owner = []Owner{
-	// {Name: "Alex Kenzo", Email: "alex.coder.kenzo@gmail.com"},
-	// {Name: "Doniyor Umarov", Email: "umarovdoniyorstudy@gmail.com"},
-	// {Name: "Ismoil Safarov", Email: "umarov.doniyor.2001@gmail.com"},
-	{Name: "Shaxzod", Email: "mastermusic2529@gmail.com"},
+	{Name: "Alex Kenzo", Email: "alex.coder.kenzo@gmail.com"},
+	{Name: "Doniyor Umarov", Email: "umarovdoniyorstudy@gmail.com"},
+	{Name: "Ismoil Safarov", Email: "umarov.doniyor.2001@gmail.com"},
 }
 
 var RandomEmailSubject string = `To'y qachon`
@@ -65,3 +64,41 @@ var RandomEmailIntro string = `
   <h3 style="color: #4CAF50; font-size: 18px;">Here’s a Quick Introduction</h3>
       <p style="line-height: 1.6; font-size: 16px;">We value our users and aim to provide a seamless experience. Below, you’ll find details on what’s new and how to make the most of our latest updates.</p>
 `
+
+type Mail struct {
+	To                   string `json:"to"`
+	ToName               string `json:"to_name"`
+	From                 string `json:"from"`
+	FromName             string `json:"from_name"`
+	EmailBanner          string `json:"email_banner"`
+	EmailIntroTopic      string `json:"email_intro_topic"`
+	EmailIntroBody       string `json:"email_intro_body"`
+	EmailBodyTopic       string `json:"email_body_topic"`
+	EmailBody            string `json:"email_body"`
+	EmailBodyConclusion  string `json:"email_body_conclusion"`
+	EmailButtonName      string `json:"email_button_name"`
+	EmailButtonUnderText string `json:"email_button_under_text"`
+	EmailCopyright       string `json:"email_copyright"`
+}
+
+// --
+// to whom
+// to whom name
+// from whom
+// from whom name
+// --
+// --
+// email banner
+// --
+// email intro theme
+// email into
+// --
+// email body theme
+// email body in <td>
+// email body conclusion
+// --
+// button to website
+// under button text part
+// --
+// ©️ copyright
+// --
